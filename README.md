@@ -21,7 +21,7 @@ git clone https://github.com/TaemVMC/VerificationManager.git
 ├── Apigateway
 ├── Builder
 ├── ConfigManager
-├── TransactionManageer
+├── TransactionManager
 ├── UserManager
 └── VerificationManager
 ```
