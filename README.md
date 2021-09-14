@@ -15,7 +15,7 @@ git clone https://github.com/TaemVMC/VerificationManager.git
 ```
 
 
-###아래와 같은 디렉토리 구조가 갖춰집니다.
+### 아래와 같은 디렉토리 구조가 갖춰집니다.
 ```
 .
 ├── Apigateway
