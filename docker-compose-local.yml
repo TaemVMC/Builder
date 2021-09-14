@@ -28,7 +28,7 @@ services:
   transaction-manager:
     container_name: transaction-manager
     build:
-      context: ../TransactionManageer
+      context: ../TransactionManager
       target: local
     image: transaction-manager:local
     deploy:
