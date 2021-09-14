@@ -32,7 +32,7 @@ git clone https://github.com/TaemVMC/VerificationManager.git
 ```
 cd ./Builder
 ./build.sh
-docker-compose -f docker-compose-local.yml up -d
+docker-compose -f docker-compose-local.yml up -d --build
 ```
 
 
@@ -44,5 +44,5 @@ docker-compose -f docker-compose-local.yml up -d
 
 ```
 cd ./Builder
-docker-compose -f docker-compose-development.yml up -d
+docker-compose -f docker-compose-development.yml up -d --build
 ```
