@@ -40,7 +40,7 @@ docker-compose -f docker-compose-local.yml up -d --build
 
 서비스 환경에 개발용도로 배포할 때는 docker-compose-development.yml을 사용합니다. 소스코드를 작업환경에 저장해놓을 필요가 없습니다.
 
-컴포즈의 빌드 컨텍스트는 곧바로 Github 레포지토리를 바라보게 됩니다. 또한 빌드도 컨테이너 내부에서 이루어집니다.
+컴포즈의 빌드 컨텍스트는 곧바로 Github 레포지토리를 바라보게 됩니다. Java 빌드 또한 컨테이너 내부에서 이루어지므로 작업환경의 종속없이 베마코 서비스 실행이 가능합니다.
 
 ```
 cd ./Builder
