@@ -4,9 +4,11 @@ services:
   apigateway:
     container_name: apigateway
     build:
-      context: ../Apigateway
-      target: local
-    image: apigateway:local
+      context: ../Apigateway # Apigateway 경로를 Github에서 로컬 디렉토리로 수정
+      target: local # local 스테이지로 타겟을 바꾸면 ../Apigateway의 빌드 결과물(.jar)을 컨테이너에 복사한다. (컨테이너 내부 java 빌드 과정 X)
+    image: apigateway:local # 태그명 수정은 식별하기 위함.
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev # 필요할 경우 프로파일 수정(default, local, dev, prod)
     deploy:
       restart_policy:
         condition: on-failure
@@ -16,21 +18,21 @@ services:
   verification-manager:
     container_name: verification-manager
     build:
-      context: ../VerificationManager
-      target: local
-    image: verification-manager:local
+      context: https://github.com/TaemVMC/VerificationManager.git#development
+      target: development
+    image: verification-manager:development
     deploy:
       restart_policy:
         condition: on-failure
     ports:
-      - "8001:8080"
+      - "8001:8080" # 편의를 위한 포워딩. Prod에서는 삭제필요
 
   transaction-manager:
     container_name: transaction-manager
     build:
-      context: ../TransactionManager
-      target: local
-    image: transaction-manager:local
+      context: https://github.com/TaemVMC/TransactionManager.git#development
+      target: development
+    image: transaction-manager:development
     deploy:
       restart_policy:
         condition: on-failure
@@ -40,9 +42,9 @@ services:
   user-manager:
     container_name: user-manager
     build:
-      context: ../UserManager
-      target: local
-    image: user-manager:local
+      context: https://github.com/TaemVMC/UserManager.git#development
+      target: development
+    image: user-manager:development
     deploy:
       restart_policy:
         condition: on-failure
