@@ -5,7 +5,7 @@ services:
     container_name: apigateway
     image: on91716/dev.apigateway:latest
     environment:
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-prod}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
     deploy:
       restart_policy:
         condition: on-failure
@@ -16,7 +16,7 @@ services:
     container_name: verification-manager
     image: on91716/dev.verification-manager:latest
     environment:
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-prod}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
     deploy:
       restart_policy:
         condition: on-failure
@@ -25,7 +25,7 @@ services:
     container_name: transaction-manager
     image: on91716/dev.transaction-manager:latest
     environment:
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-prod}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
     deploy:
       restart_policy:
         condition: on-failure
@@ -35,7 +35,7 @@ services:
     container_name: user-manager
     image: on91716/dev.user-manager:latest
     environment:
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-prod}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
     deploy:
       restart_policy:
         condition: on-failure
