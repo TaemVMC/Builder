@@ -41,10 +41,9 @@ services:
         condition: on-failure
 
   redis:
+    container_name: redis
     image: "redis:alpine"
-    hostname: redis
-    ports:
-      - "6379:6379"
+
 
 
 #  zookeeper:
