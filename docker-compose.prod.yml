@@ -40,7 +40,11 @@ services:
       restart_policy:
         condition: on-failure
 
-
+  redis:
+    image: "redis:alpine"
+    hostname: redis
+    ports:
+      - "6379:6379"
 
 #  zookeeper:
 #    image: wurstmeister/zookeeper
