@@ -11,7 +11,18 @@ services:
         condition: on-failure
     ports:
       - "8000:8080"
-
+      
+  user-manager:
+    container_name: user-manager
+    image: on91716/dev.user-manager:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
+    deploy:
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8001:8080"
+      
   verification-manager:
     container_name: verification-manager
     image: on91716/dev.verification-manager:latest
@@ -20,6 +31,8 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
+    ports:
+      - "8002:8080"
 
   transaction-manager:
     container_name: transaction-manager
@@ -29,16 +42,10 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
+    ports:
+      - "8003:8080"
 
 
-  user-manager:
-    container_name: user-manager
-    image: on91716/dev.user-manager:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
-    deploy:
-      restart_policy:
-        condition: on-failure
 
   redis:
     container_name: redis
