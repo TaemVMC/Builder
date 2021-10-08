@@ -11,9 +11,18 @@ services:
         condition: on-failure
     ports:
       - "8000:8080"
-    volumes:
-      - "./log/apigateway:/log"
-
+      
+  user-manager:
+    container_name: user-manager
+    image: on91716/dev.user-manager:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
+    deploy:
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8001:8080"
+      
   verification-manager:
     container_name: verification-manager
     image: on91716/dev.verification-manager:latest
@@ -22,8 +31,8 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-    volumes:
-      - "./log/verification-manager:/log"
+    ports:
+      - "8002:8080"
 
   transaction-manager:
     container_name: transaction-manager
@@ -33,20 +42,11 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-    volumes:
-      - "./log/transaction-manager:/log"
+    ports:
+      - "8003:8080"
 
 
-  user-manager:
-    container_name: user-manager
-    image: on91716/dev.user-manager:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
-    deploy:
-      restart_policy:
-        condition: on-failure
-    volumes:
-      - "./log/user-manager:/log"
+
   redis:
     container_name: redis
     image: "redis:alpine"
