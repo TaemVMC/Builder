@@ -11,7 +11,9 @@ services:
         condition: on-failure
     ports:
       - "8000:8080"
-      
+    volumes:
+      - "./log/apigateway:/log"
+
   user-manager:
     container_name: user-manager
     image: on91716/dev.user-manager:latest
@@ -22,6 +24,8 @@ services:
         condition: on-failure
     ports:
       - "8001:8080"
+    volumes:
+      - "./log/user-manager:/log"
       
   verification-manager:
     container_name: verification-manager
@@ -33,6 +37,8 @@ services:
         condition: on-failure
     ports:
       - "8002:8080"
+    volumes:
+      - "./log/verification-manager:/log"
 
   transaction-manager:
     container_name: transaction-manager
@@ -44,7 +50,8 @@ services:
         condition: on-failure
     ports:
       - "8003:8080"
-
+    volumes:
+      - "./log/transaction-manager:/log"
 
 
   redis:
